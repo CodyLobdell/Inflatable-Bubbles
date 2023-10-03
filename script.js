@@ -14,6 +14,8 @@ class Particle {
   constructor(effect){
     this.effect = effect;
     this.radius = Math.floor(Math.random() * 8 + 8);
+    this.minRadius = this.radius;
+    this.maxRadius = this.radius * 5; 
     this.x = this.radius + Math.random() * (this.effect.width - this.radius * 2);
     this.vx = Math.random() * 0.2 - 0.1;
     this.vy = Math.random() * 0.2 - 0.1;
@@ -33,6 +35,11 @@ class Particle {
   update(){
     if (this.effect.mouse.pressed){
       const dx = this.x - this.effect.mouse.x;
+      const dy = this.y - this.effect.mouse.y;
+      const distance = Math.hypot(dx, dy);
+        if (distance < this.effect.mouse.radius && this.radius < this.maxRadius){
+          this.radius += 2;
+        }
     }
   }
 }
