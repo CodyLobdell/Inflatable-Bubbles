@@ -41,5 +41,14 @@ class Particle {
           this.radius += 2;
         }
     }
+    if (this.radius > this.minRadius) this.radius -= 0.1;
+
+    this.x += this.vx;
+    this.y += this.vy;
+
+    if (this.x < this.radius){
+        this.x = this.radius;
+        this.vx *= -1;
+    }
   }
 }
