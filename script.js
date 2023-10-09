@@ -59,3 +59,17 @@ class Particle {
     this.y = this.radius + Math.random() * (this.effect.height - this.radius * 2);
   }
 }
+
+class Effect {
+  constructor(canvas, context){
+    this.canvas = canvas;
+    this.context = context;
+    this.width = this.canvas.width;
+    this.height = this.canvas.height;
+    this.particles = [];
+    this.numberOfParticles = 300;
+    this.createParticles();
+
+    
+  }
+}
