@@ -70,6 +70,15 @@ class Effect {
     this.numberOfParticles = 300;
     this.createParticles();
 
-    
+    this.mouse = {
+      x: 0,
+      y: 0,
+      pressed: false,
+      radius: 60
+    }
+
+    window.addEventListener('resize' , e => {
+      this.resize(e.target.wondow.innerWidth, e.target.window.innerHeight);
+    });
   }
 }
