@@ -80,5 +80,20 @@ class Effect {
     window.addEventListener('resize' , e => {
       this.resize(e.target.wondow.innerWidth, e.target.window.innerHeight);
     });
+    window.addEventListener('mousemove' , e => {
+      if (this.mouse.pressed){
+        this.mouse.x = e.x;
+        this.mouse.y = e.y;
+      }
+    });
+    window.addEventListener('mousedown' , e => {
+        this.mouse.pressed = true;
+        this.mouse.x = e.x;
+        this.mouse.y = e.y;
+      });
+      window.addEventListener('mouseup' , e =>{
+        this.mouse.pressed = false;
+      });
+    }
   }
 }
