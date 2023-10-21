@@ -6,7 +6,7 @@ canvas.height = window.innerHeight;
 
 console.log(ctx);
 let gradient = ctx.createLinearGradient(0,0,canvas.width,canvas.height);
-gradient.addColorStop(0,'pink');
+gradient.addColorStop(0.5,'pink');
 gradient.addColorStop(1,'magenta');
 ctx.fillStyle = gradient;
 
@@ -41,6 +41,7 @@ class Particle {
           this.radius += 2;
         }
     }
+
     if (this.radius > this.minRadius) this.radius -= 0.1;
 
     this.x += this.vx;
