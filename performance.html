@@ -1,0 +1,43 @@
+<div>
+  <h1>Performance</h1>
+  <div style="margin-top: 15px;" ng-init="page.size = 10">
+
+    <tm1-ui-rpt-view tm1-instance="Instance Name" tm1-cube="Cube Name" ng-model="data" tm1-suppress-zero="both"
+      tm1-page-size="{{page.size}}">
+
+      <tm1-ui-rpt-config>
+        <tm1-ui-rpt-title tm1-dimension="Dimension Name 1" tm1-element="Element Name 1"></tm1-ui-rpt-title>
+        <tm1-ui-rpt-title tm1-dimension="Dimension Name 2" tm1-element="Element Name 2"></tm1-ui-rpt-title>
+
+        <tm1-ui-rpt-row tm1-dimension="Dimension Name on Row" tm1-mdx="MDX on Row"
+          tm1-attribute="Attribute Name on Row"></tm1-ui-rpt-row>
+
+        <tm1-ui-rpt-column tm1-dimension="Dimension Name on Col" tm1-mdx="MDX on Col"
+          tm1-attribute="Attribute Name on Col"></tm1-ui-rpt-column>
+      </tm1-ui-rpt-config>
+
+      <tm1-ui-rpt-template>
+        <table id="af1" class="table table-condensed">
+          <thead>
+            <tr>
+              <th>Header 1</th>
+              <th class="text-center">Header 2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="rowData in data.rows track by $index" ng-if="rowData.inPage">
+              <td tm1-ui-rpt-row-element="rowData" tm1-dimension="Dimension Name on Row"></td>
+
+              <td class="text-right">
+                <tm1-ui-rpt-row-cell tm1-row-data="rowData" tm1-column-elements="Header 1"></tm1-ui-rpt-row-cell>
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+
+      </tm1-ui-rpt-template>
+
+    </tm1-ui-rpt-view>
+</div>
+</div>
